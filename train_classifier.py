@@ -6,7 +6,6 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.datasets import make_classification
 from sklearn.model_selection import train_test_split
 from sklearn.decomposition import PCA
-import pickle
 import numpy as np
 
 import matplotlib.pyplot as plt
@@ -150,13 +149,6 @@ class Dataset:
         plt.scatter(X[:,0], X[:,1], c=c)
         plt.show()
 
-data = Dataset(n_informative=2, n_classes=2, n_clusters_per_class=1, class_sep=1.3, n_samples=10000)
-data.visualize()
 
-for model_name in {'SVM', "LogisticRegression", "RandomForest", "DecisionTree"}:
-    model = Model(model_name=model_name)
-    train = Train(dataset_instance=data, model=model, scoring='f1', cv=5)
-    best_model, best_score = train.train()
-    pickle.dump(best_model, open(model_name + ".pkl", 'wb')) 
 
     
