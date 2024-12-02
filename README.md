@@ -1,5 +1,6 @@
 # Projet_Final_Docker_Conteneurs  
 ## Déploiement:  
+git clone https://github.com/gackouhamady/Projet_Final_Docker_Conteneurs.git  
 docker pull omarnms/examen-docker:v1.0  
 docker compose build  
 docker compose run --rm app 
