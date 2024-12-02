@@ -12,7 +12,7 @@ docker compose run --rm app
 5. matplotlib
 ## Features:  
 L'application fonctionne selon les étapes suivantes:
-1. Demander à l'utilisateur de choisir les modèles à entrainer.
+1. Demander à l'utilisateur de choisir les modèles à entrainer parmi: SVM, regression logistique, arbre de decision et forets aléatoire.
 2. Créer un dataset synthétique de 10000 samples avec **make_classification()** et exporter les trois parties entrainement, test et validation en *.csv*.
 3. Pour chaque modèle choisi par utilisateur:
    1. Faire une sélection de modèle avec Gridsearch (avec une 5-fold cross-validation).
