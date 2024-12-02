@@ -110,8 +110,7 @@ class Dataset:
                                             n_clusters_per_class=self.n_clusters_per_class,
                                             class_sep=self.class_sep,
                                             n_samples=self.n_samples,
-                                            scale=100,
-                                            random_state=45)
+                                            scale=100)
 
         self.X_train, self.y_train, self.X_test, self.y_test, self.X_val, self.y_val = self._generate_split()
 
@@ -134,18 +133,18 @@ class Dataset:
     
     def reduce_dataset(self):
         pca = PCA(n_components=2, random_state=42)
-        pca.fit(self.X_train)
-        return pca.transform(self.X_train)
+        pca.fit(self.X)
+        return pca.transform(self.X)
     
     def visualize(self):
         if self.X.shape[1] > 2:
             X = self.reduce_dataset()
         else:
-            X = self.X_train
+            X = self.X
         plt.title("Dataset")
         plt.ylabel('X2')
         plt.xlabel('X1')
-        c = ["red" if y == 1 else "blue" for y in self.y_train]
+        c = ["red" if y == 1 else "blue" for y in self.y]
         plt.scatter(X[:,0], X[:,1], c=c)
         plt.show()
 

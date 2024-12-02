@@ -16,26 +16,12 @@ def predict(model_name):
     y_pred = model.predict(X_val)
 
      
-    plt.figure(figsize=(10, 7))
-
-     
-    plt.scatter(X_val[:, 0], X_val[:, 1], c=y_val, cmap='viridis', alpha=0.5, label="Vraies étiquettes")
-
-    
-    plt.scatter(X_val[:, 0], X_val[:, 1], c=y_pred, cmap='cool', alpha=0.5, s=20, label="Prédictions")
-
-    plt.title("Visualisation des données de validation et des prédictions")
-    plt.xlabel("Caractéristique 1")
-    plt.ylabel("Caractéristique 2")
+    plt.scatter(X_val[:, 0], X_val[:, 1], c=y_val, cmap=plt.cm.coolwarm, label='Vrai Labels', edgecolor='k', s = [80 for _ in range(len(y_val))])
+    plt.scatter(X_val[:, 0], X_val[:, 1], c=y_pred, cmap=plt.cm.Paired, marker='x', label='Prédictions')
     plt.legend()
-    plt.colorbar(label="Classes")
+    plt.title(model_name)
+    plt.show()
 
     
     report = classification_report(y_val, y_pred)
-    plt.figtext(0.5, -0.1, report, wrap=True, horizontalalignment='center', fontsize=10)
-
-    plt.tight_layout()
-    plt.show()
-
-if __name__ == "__main__":
-    predict()
+    print(report)
