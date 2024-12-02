@@ -1,1 +1,13 @@
-# Projet_Final_Docker_Conteneurs
+# Projet_Final_Docker_Conteneurs  
+## Déploiement:  
+docker pull omarnms/examen-docker:v1.0
+docker compose build
+docker compose run --rm app
+## Features:  
+L'application fonctionne selon les étapes suivantes:
+1. Demander à l'utilisateur de choisir les modèles à entrainer.
+2. Créer un dataset synthétique de 10000 samples avec **make_classification()** et exporter les trois parties entrainement, test et validation en *.csv*.
+3. Pour chaque modèle choisi par utilisateur:
+   1. Faire une sélection de modèle avec Gridsearch (avec une 5-fold cross-validation).
+   2. Tester les modèles sur les données de validation.
+   3. Afficher le rapport de classification et ploter les prédictions du modèles.
